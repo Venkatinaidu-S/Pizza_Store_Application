@@ -10,6 +10,7 @@ function Menu() {
         localStorage.removeItem('token');  // Remove token in local storage
         localStorage.setItem('username', ' '); 
         alert('Logged out successfully');  // Show alert
+        console.log('Logged out successfully'); //show message in console
         navigate('/login');  // Navigate to login page
     };
 

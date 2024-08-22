@@ -16,6 +16,7 @@ const Login = () => {
             password: Yup.string().required('Password is required'),
         }),
         onSubmit: async (values, { setSubmitting, setStatus }) => {
+            setStatus(null); // Reset status before the submission
             try {
                 const response = await axios.post('http://localhost:5000/users/login', values);
                 if (response.data && response.data.token) {

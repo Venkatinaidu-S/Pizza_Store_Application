@@ -52,6 +52,24 @@ exports.deleteMenuItem = async (req, res) => {
     }
   };
 
+  // Get all menu items based on category
+exports.getMenuItemsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+
+    // Fetch menu items based on the given category
+    const menuItems = await MenuItem.find({ category: new RegExp(`^${category}$`, 'i') });  //regExp for not case-sensitive
+
+    if (menuItems.length === 0) {
+      return res.status(404).json({ message: 'No menu items found for this category' });
+    }
+
+    // Return the menu items
+    res.status(200).json(menuItems);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
   
 
   

@@ -4,7 +4,7 @@ function Footer() {
         <>
            
             <footer>
-                <div class="container">
+                <div className="container">
                     <p>&copy; 2024 Pizza store. All rights reserved.</p>
                 </div>
             </footer>
